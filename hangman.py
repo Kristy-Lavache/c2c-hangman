@@ -45,3 +45,34 @@ def draw_hangman(num_wrong_guesses):
         output = output + "\n |"
     output = output + "____\n\n"
     print(output)
+
+
+# guess = "a"
+# word = "test"
+# if guess in word:
+#     print("Right!")
+# else:
+#     print("Wrong!)
+
+
+word = "test"
+wrong_guesses = 0
+guesses = []
+while wrong_guesses < num_wrong_guesses_allowed:
+    guess = input("What is your guess? ").lower()
+    if guess in word:
+        print("Correct!")
+    else:
+        print("The letter is not in the word. Try again!")
+        wrong_guesses = wrong_guesses + 1
+
+    draw_hangman(wrong_guesses)
+    guesses.append(guess)
+    print("You've guessed: " + str(guesses))
+if wrong_guesses == num_wrong_guesses_allowed:
+    print("Sorry, your lost. The word was",  word)
+
+
+
+
+
